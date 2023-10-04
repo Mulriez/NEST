@@ -25,10 +25,14 @@ export class UserDto {
   @IsString()
   role: string;
 }
-
 export class RegisterDto extends PickType(UserDto, [
   'nama',
   'email',
   'password',
 ]) {}
 export class LoginDto extends PickType(UserDto, ['email', 'password']) {}
+export class ResetPasswordDto {
+  @IsString()
+  @MinLength(8)
+  new_password: string;
+}
